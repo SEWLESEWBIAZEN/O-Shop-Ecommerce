@@ -1,6 +1,10 @@
+'use client'
+import { usePathname } from 'next/navigation'
 import React from 'react'
+import clsx from 'clsx'
 
 const Page = () => {
+  const pathname=usePathname();
   return (
     <div className='font-semibold sm:text-[12px] lg:text-[18px] hidden sm:flex sm:flex-row sm:gap-2 md:gap-4 justify-center py-3 px-1 items-center'>      
       <div className=' navbar__link cursor-pointer relative'>HOME</div>
