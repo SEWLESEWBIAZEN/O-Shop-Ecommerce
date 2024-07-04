@@ -1,20 +1,20 @@
-import { BiHome } from "react-icons/bi"
+import { BiHome,BiCategory } from "react-icons/bi"
 
 export const links=[
     {
-        name:"home",
+        name:"Home",
         href:"/",
         icon:BiHome
 
     },
     {
-        name:"home",
-        href:"/",
-        icon:BiHome
+        name:"Cagories",
+        href:"/categories",
+        icon:BiCategory
 
     },
     {
-        name:"home",
+        name:{` MEN'S `},
         href:"/",
         icon:BiHome
 
