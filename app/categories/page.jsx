@@ -1,7 +1,6 @@
 import React from 'react'
 import Categories from '../_components/Categories'
 import { AiOutlineArrowRight } from 'react-icons/ai'
-import React from 'react'
 
 export const metadata = {
   title: "O-Shop | Select Your Categories",
