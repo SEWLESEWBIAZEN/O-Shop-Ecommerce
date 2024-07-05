@@ -10,6 +10,7 @@ const Categories = () => {
         return (
           <CategoryCard
             key={index}
+            id={category.id}
             title={category.title}
             desc={category.desc}
             img={category.img}
