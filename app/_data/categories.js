@@ -5,7 +5,7 @@ export const categories = [
     title: "T-SHIRTS",
     desc: "In cheap price, various kinds, several sizes, best qualities and fashion ",
     fav: 5,
-    priceHint: "starting from $15",
+    priceHint: "Starting from $15",
   },
   {
     id: 1,
@@ -13,7 +13,7 @@ export const categories = [
     title: "SKIRTS",
     desc: "In cheap price, various kinds, several sizes, best qualities and fashion ",
     fav: 12,
-    priceHint: "starting from $25",
+    priceHint: "Starting from $25",
   },
   {
     id: 2,
@@ -21,7 +21,7 @@ export const categories = [
     title: "SHOES",
     desc: "In cheap price, various kinds, several sizes, best qualities and fashion ",
     fav: 33,
-    priceHint: "starting from $35",
+    priceHint: "Starting from $35",
   },
   {
     id: 3,
@@ -29,7 +29,7 @@ export const categories = [
     title: "JACKET",
     desc: "In cheap price, various colors, several sizes, best qualities and fashion ",
     fav: 109,
-    priceHint: "starting from $42",
+    priceHint: "Starting from $42",
   },
   {
     id: 4,
@@ -37,7 +37,7 @@ export const categories = [
     title: "PERFUME",
     desc: "In cheap price, various kinds, attractive odors, best qualities and fashion ",
     fav: 18,
-    priceHint: "starting from $12",
+    priceHint: "Starting from $12",
   },
   {
     id: 5,
@@ -45,7 +45,7 @@ export const categories = [
     title: "JEWLERY",
     desc: "In cheap price, various DESIGNS, several sizes, best qualities and fashion ",
     fav: 312,
-    priceHint: "starting from $2",
+    priceHint: "Starting from $2",
   },
   {
     id: 6,
@@ -53,6 +53,6 @@ export const categories = [
     title: "WATCHES",
     desc: "In cheap price, various colors, several sizes, best qualities and fashion ",
     fav: 2,
-    priceHint: "starting from $7",
+    priceHint: "Starting from $7",
   },
 ];
