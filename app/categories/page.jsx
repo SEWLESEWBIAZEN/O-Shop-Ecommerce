@@ -4,6 +4,16 @@ import {AiOutlineArrowRight} from 'react-icons/ai'
 
 
 
+export const metadata = {
+  title: "O-Shop | Select Your Categories",
+  icons:{
+    icon:'/favicon.ico',
+  },
+  description: "An Online shop that you can order the product you want to purchase, and it is an online show room. Find bunch of categories from which your best is included",
+};
+
+
+
 const Page = () => {
   return (
     <div className='py-10 '>
