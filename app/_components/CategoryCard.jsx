@@ -17,15 +17,15 @@ const CategoryCard = ({ img, title, desc, priceHint }) => {
           className='rounded-2xl mx-auto sm:mx-0 cursor-pointer '
         />
 
-        <div className='flex flex-col gap-5 justify-center'>
+        <div className='flex flex-col gap-3 justify-center'>
           <h1 className='text-[var(--primary-color)] font-semibold text-md'>{title}</h1>
           <p className='text-gray-500 max-w-[300px] text-center md:text-start'>{desc}</p>
           <div className='flex flex-row  text-gray-500 items-center justify-between'>
-            <div className='flex flex-row -space-x-2'>
-              <FaThumbsUp size={20} className='text-orange-800' />
-              <FaThumbsUp size={20} className='text-orange-800' />
-              <FaThumbsUp size={20} className='text-orange-800' />
-              <FaThumbsUp size={20} className='text-orange-800' />
+            <div className='flex flex-row -space-x-1'>
+              <FaThumbsUp size={10} className='text-orange-800' />
+              <FaThumbsUp size={10} className='text-orange-800' />
+              <FaThumbsUp size={10} className='text-orange-800' />
+              <FaThumbsUp size={10} className='text-orange-800' />
             </div>
             <p className='text-[12px]'>(avg...like) </p>
           </div>
