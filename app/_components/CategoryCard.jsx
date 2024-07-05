@@ -7,7 +7,7 @@ import { FaThumbsUp } from 'react-icons/fa'
 const CategoryCard = ({ img, title, desc, priceHint }) => {
   return (
     <div className='h-auto lg:max-h-[300px]'>
-      <div className='h-full bg-gray-50 hover:bg-white border border-gray-50 rounded rounded-2xl flex flex-col sm:flex-row justify-evenly mx-auto p-3'>
+      <div className='h-full bg-gray-50 hover:bg-white border border-gray-50 rounded-2xl flex flex-col sm:flex-row justify-evenly mx-auto p-3'>
 
         <Image
           src={img}
