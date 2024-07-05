@@ -4,7 +4,7 @@ import { AiOutlineArrowRight } from 'react-icons/ai'
 import { FaThumbsUp } from 'react-icons/fa'
 
 
-const CategoryCard = ({ img, title, desc, fav, priceHint }) => {
+const CategoryCard = ({ id, img, title, desc, fav, priceHint }) => {
 
   //render links
   const renderLikes = () => {
@@ -47,7 +47,7 @@ const CategoryCard = ({ img, title, desc, fav, priceHint }) => {
   }
   return (
     <div className='h-auto lg:max-h-[300px]'>
-      <div className='h-full bg-gray-50 hover:bg-white border border-gray-50 rounded-2xl flex flex-col sm:flex-row justify-evenly mx-auto p-3'>
+      <div className={`h-full bg-gray-50 hover:bg-white border border-gray-50 rounded-2xl ${(id % 2 !== 0) ? "sm:flex-row" : "sm:flex-row-reverse"}  flex flex-col justify-evenly mx-auto p-3`}>
 
         <Image
           src={img}
@@ -58,7 +58,7 @@ const CategoryCard = ({ img, title, desc, fav, priceHint }) => {
         />
 
         <div className='flex flex-col gap-3 justify-center'>
-          <h1 className='text-[var(--primary-color)] font-semibold text-md'>{title}</h1>
+          <h1 className=' text-[var(--primary-color)]  font-semibold font-mono text-md text-sm'>{title}</h1>
           <p className='text-gray-500 max-w-[300px] text-center md:text-start'>{desc}</p>
           <div className='flex flex-row  text-gray-500 items-center justify-between'>
             <div className='flex flex-row -space-x-1 gap-1'>
@@ -76,7 +76,7 @@ const CategoryCard = ({ img, title, desc, fav, priceHint }) => {
             <p className='text-[12px]'>(<span>{fav}</span>)</p>
           </div>
           <div className='flex flex-row justify-between'>
-            <p className=''>{priceHint}</p>
+            <p className='text-gray-500 text-opacity-65 tracking-widest'>{priceHint}</p>
             <AiOutlineArrowRight
               size={25}
               className=' text-gray-400 hover:text-[var(--primary-color)] cursor-pointer font-bold'
