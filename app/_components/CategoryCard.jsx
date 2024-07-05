@@ -14,7 +14,7 @@ const CategoryCard = ({ img, title, desc, priceHint }) => {
           width={200}
           height={100}
           alt='Category image'
-          className='rounded rounded-2xl mx-auto sm:mx-0 cursor-pointer '
+          className='rounded-2xl mx-auto sm:mx-0 cursor-pointer '
         />
 
         <div className='flex flex-col gap-5 justify-center'>
