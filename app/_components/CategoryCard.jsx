@@ -1,41 +1,41 @@
 import Image from 'next/image'
 import React from 'react'
-import {AiOutlineArrowRight} from 'react-icons/ai'
-import { FaThumbsUp} from 'react-icons/fa'
+import { AiOutlineArrowRight } from 'react-icons/ai'
+import { FaThumbsUp } from 'react-icons/fa'
 
 
 const CategoryCard = ({ img, title, desc, priceHint }) => {
   return (
     <div className='h-auto lg:max-h-[300px]'>
       <div className='h-full bg-gray-50 hover:bg-white border border-gray-50 rounded rounded-2xl flex flex-col sm:flex-row justify-evenly mx-auto p-3'>
-    
-       <Image
+
+        <Image
           src={img}
           width={200}
           height={100}
           alt='Category image'
           className='rounded rounded-2xl mx-auto sm:mx-0 cursor-pointer '
         />
-     
+
         <div className='flex flex-col gap-5 justify-center'>
           <h1 className='text-[var(--primary-color)] font-semibold text-md'>{title}</h1>
           <p className='text-gray-500 max-w-[300px] text-center md:text-start'>{desc}</p>
-        <div className='flex flex-row  text-gray-500 items-center justify-between'>
-          <div className='flex flex-row -space-x-2'>
-          <FaThumbsUp size={20}/>
-          <FaThumbsUp size={20}/>
-          <FaThumbsUp size={20}/>
-          <FaThumbsUp size={20}/>  
+          <div className='flex flex-row  text-gray-500 items-center justify-between'>
+            <div className='flex flex-row -space-x-2'>
+              <FaThumbsUp size={20} className='text-orange-800' />
+              <FaThumbsUp size={20} className='text-orange-800' />
+              <FaThumbsUp size={20} className='text-orange-800' />
+              <FaThumbsUp size={20} className='text-orange-800' />
+            </div>
+            <p className='text-[12px]'>(avg...like) </p>
           </div>
-          <p className='text-[12px]'>(avg...like) </p>      
-        </div>
           <div className='flex flex-row justify-between'>
             <p className=''>{priceHint}</p>
-            <AiOutlineArrowRight 
-            size={25}
-            className=' text-gray-400 hover:text-[var(--primary-color)] cursor-pointer font-bold'
+            <AiOutlineArrowRight
+              size={25}
+              className=' text-gray-400 hover:text-[var(--primary-color)] cursor-pointer font-bold'
             />
-            </div>
+          </div>
         </div>
       </div>
     </div>
