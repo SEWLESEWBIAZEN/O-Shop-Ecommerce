@@ -4,10 +4,10 @@ import Products from './_components/Products'
 import Testimonials from './_components/Testimonials'
 export default function Home() {
   return (
-    <main>
+    <div>
       <Hero />
       <Products/>
       <Testimonials/>
-    </main>
+    </div>
   );
 }
