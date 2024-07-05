@@ -5,7 +5,7 @@ import { AiOutlineArrowRight } from 'react-icons/ai'
 
 const RecentlyAdded = () => {
     return (
-        <div className="container bg-blue-100 rounded-2xl py-2">
+        <div className="container bg-gray-100 rounded-2xl py-2">
             <div className="flex flex-row justify-between py-2">
                 <h1 className="font-semibold">RECENTLY ADDED CATEGORIES</h1>
                 <div className="flex flex-row place-items-center text-gray-400 gap-2 cursor-pointer hover:text-[var(--primary-color)]">

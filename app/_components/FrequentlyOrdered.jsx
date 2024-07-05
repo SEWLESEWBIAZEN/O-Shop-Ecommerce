@@ -4,7 +4,7 @@ import Categories from '../_components/Categories'
 import { AiOutlineArrowRight } from 'react-icons/ai'
 const FrequentlyOrdered = () => {
     return (
-        <div className="container py-2 bg-orange-100 rounded-2xl">
+        <div className="container py-2 bg-white rounded-2xl">
 
             <div className="flex flex-row justify-between  ">
                 <h1 className="font-semibold"> FREQUENTLY ORDERED CATEGORIES</h1>

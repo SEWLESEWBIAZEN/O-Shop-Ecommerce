@@ -5,7 +5,7 @@ import Categories from '../_components/Categories'
 import { AiOutlineArrowRight } from 'react-icons/ai'
 const FutureIncomings = () => {
     return (
-        <div className="container bg-green-50 rounded-2xl py-2">
+        <div className="container bg-white rounded-2xl py-2">
             <div className="flex flex-row justify-between py-2">
                 <h1 className="font-semibold"> INCOMING CATEGORIES IN FUTURE</h1>
                 <div className="flex flex-row place-items-center text-gray-400 gap-2 cursor-pointer hover:text-[var(--primary-color)]">
