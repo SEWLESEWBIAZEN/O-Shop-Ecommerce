@@ -1,28 +1,36 @@
-import { BiHome,BiCategory } from "react-icons/bi"
 
-export const links=[
+export const links = [
     {
-        name:"Home",
-        href:"/",
-        icon:BiHome
-
+        name: "HOME",
+        href: "/",
     },
     {
-        name:"Cagories",
-        href:"/categories",
-        icon:BiCategory
-
+        name: "CATEGORIES",
+        href: "/categories",
     },
     {
-        name:{` MEN'S `},
-        href:"/",
-        icon:BiHome
-
+        name: "MEN",
+        href: "/mens",
     },
     {
-        name:"home",
-        href:"/",
-        icon:BiHome
-
+        name: "WOMEN",
+        href: "/womens",
     },
+    {
+        name: "JEWLERY",
+        href: "/jewlery",
+    },
+    {
+        name: "PERFUME",
+        href: "/perfume",
+    },
+    {
+        name: "BLOG",
+        href: "/blog",
+    },
+    {
+        name: "HOT OFFERS",
+        href: "/hot-offers",
+    },
+
 ]
