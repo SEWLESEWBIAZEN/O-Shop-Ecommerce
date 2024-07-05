@@ -9,7 +9,7 @@ export const categories=[
     },
     {
         id:1,
-        img:"/images/skirt-1.jpg",
+        img:"/skirt-1.jpg",
         title:"SKIRTS",
         desc:"In cheap price, various kinds, several sizes, best qualities and fashion ",
         priceHint:"starting from $25"
@@ -25,7 +25,7 @@ export const categories=[
     },
     {
         id:3,
-        img:"/images/jacket-1.jpg",
+        img:"/jacket-1.jpg",
         title:"JACKET",
         desc:"In cheap price, various colors, several sizes, best qualities and fashion ",
         priceHint:"starting from $42"
@@ -46,8 +46,8 @@ export const categories=[
     },
     {
         id:6,
-        img:"/images/sunglass-1.jpg",
-        title:"SUNGLASSES",
+        img:"/watch-1.jpg",
+        title:"WATCHES",
         desc:"In cheap price, various colors, several sizes, best qualities and fashion ",
         priceHint:"starting from $7"
     },
