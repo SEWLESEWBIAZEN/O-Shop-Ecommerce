@@ -49,7 +49,7 @@ const CategoryCard = ({ id, img, title, desc, fav, priceHint, discount }) => {
     <div className='h-[400px] sm:h-[300px] lg:h-[200px]'>
 
       <div className={`h-full gap-1 bg-gray-50 hover:bg-white border border-gray-200 rounded-2xl ${(id % 2 !== 0) ? "sm:flex-row" : "sm:flex-row-reverse"}  flex flex-col justify-evenly items-center mx-auto p-1`}>
-        <div>
+        <div className='flex flex-col -space-y-12'>
           {discount &&
             <div className='ps-5 font-bold text-[var(--primary-color)] -rotate-45'>{discount}% OFF</div>}
 
