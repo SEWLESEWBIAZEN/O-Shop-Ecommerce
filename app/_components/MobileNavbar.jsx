@@ -17,7 +17,7 @@ const MobNavbar = () => {
     setIsOpen(!isOpen);
   }
   return (
-    <div className="z-0 sm:hidden fixed bottom-0 w-full bg-white left-[50%] -translate-x-[50%] max-w-[500px] px-8">
+    <div className="sm:hidden fixed bottom-0 w-full bg-white left-[50%] -translate-x-[50%] max-w-[500px] px-8">
       <div className="flex justify-between text-[28px] py-2">
         <div onClick={toggleSidebar}>
           {isOpen ? <IoCloseOutline className="icon" /> : <IoMenuOutline className="icon" />}
