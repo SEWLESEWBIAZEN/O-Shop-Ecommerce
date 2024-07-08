@@ -2,8 +2,11 @@ import React from "react";
 import { categories } from "../_data/categories";
 import Categories from "../_components/Categories";
 import { AiOutlineArrowRight } from 'react-icons/ai'
+import { useFilteringContext } from "./categories-provider";
 
 const TopRatedCategories = () => {
+    const { filteredCategories } = useFilteringContext();
+
     return (
         <div className="container  bg-gray-100 py-2 rounded-2xl">
             <div className="flex flex-row justify-between py-2">
@@ -14,7 +17,7 @@ const TopRatedCategories = () => {
                 </div>
             </div>
             <div className="text-center  bg-gray-100 py-3 rounded-2xl">
-                <Categories categories={categories} />
+                <Categories categories={filteredCategories} />
             </div>
         </div>
     );

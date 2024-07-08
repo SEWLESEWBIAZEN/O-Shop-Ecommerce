@@ -8,6 +8,7 @@ import MobileNavbar from "./_components/MobileNavbar";
 import Footer from "./_components/Footer";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import { CategoriesProvider } from "./_components/categories-provider";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -22,23 +23,23 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode;
-}>) {
+}) {
   return (
     <html lang="en">
       <head>
         <link rel="icon" href="/favicon.ico" />
       </head>
       <body className={`${inter.className}`}>
-        <div>
+        <CategoriesProvider>
           <HeaderTop />
           <HeaderMain />
           <Navbar />
           <MobileNavbar />
           {children}
           <Footer />
-        </div>
+        </CategoriesProvider>
       </body>
     </html>
   );

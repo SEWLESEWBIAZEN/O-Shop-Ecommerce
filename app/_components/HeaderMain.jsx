@@ -1,10 +1,12 @@
-import React from 'react'
+'use client'
+
 import { BiSolidShoppingBag } from 'react-icons/bi'
 import { BsSearch, BsHeart } from 'react-icons/bs'
 import { FiUser } from 'react-icons/fi'
-
+import { useFilteringContext } from './categories-provider'
 
 const Page = () => {
+  const { text, setText } = useFilteringContext();
   return (
     <div className='px-3 py-5 border-b border-gray-300'>
       <div className='container flex flex-row justify-between items-center' >
@@ -14,6 +16,8 @@ const Page = () => {
             type='text'
             className='w-full border border-gray-200 p-2 px-4 rounded-lg '
             placeholder='Enter any product name....'
+            value={text}
+            onChange={(e) => setText(e.target.value)}
           />
           <BsSearch
             size={25}
