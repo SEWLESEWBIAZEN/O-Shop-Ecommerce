@@ -31,7 +31,7 @@ export default function RootLayout({
         <link rel="icon" href="/favicon.ico" />
       </head>
       <body className={`${inter.className}`}>
-        <div className="mx-auto overflow-hidden">
+        <div>
           <HeaderTop />
           <HeaderMain />
           <Navbar />
