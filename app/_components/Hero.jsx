@@ -16,7 +16,7 @@ const Hero = () => {
         pauseOnHover: false,
     };
     return (
-        <div className='mt-10'>
+        <div className='mt-10 z-0'>
             <div className='container'>
                 <Slider {...settings}>
                     {slidedata.map((item) => {

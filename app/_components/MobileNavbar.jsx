@@ -1,15 +1,29 @@
-import React from "react";
+'use client'
+
+import React, { useState } from "react";
 
 import { FiHeart } from "react-icons/fi";
 import { HiOutlineShoppingBag } from "react-icons/hi";
-import { IoMenuOutline } from "react-icons/io5";
+import { IoMenuOutline, IoCloseOutline } from "react-icons/io5";
 import { AiOutlineHome, AiOutlineAppstore } from "react-icons/ai";
+import Link from "next/link";
+import MobileSidebar from './MobileSidebar'
 
 const MobNavbar = () => {
+
+  const [isOpen, setIsOpen] = useState(false)
+
+  const toggleSidebar = () => {
+    setIsOpen(!isOpen);
+  }
   return (
-    <div className="sm:hidden fixed bottom-0 w-full bg-white left-[50%] -translate-x-[50%] max-w-[500px] px-8">
+    <div className="z-0 sm:hidden fixed bottom-0 w-full bg-white left-[50%] -translate-x-[50%] max-w-[500px] px-8">
       <div className="flex justify-between text-[28px] py-2">
-        <IoMenuOutline className="icon" />
+        <div onClick={toggleSidebar}>
+          {isOpen ? <IoCloseOutline className="icon" /> : <IoMenuOutline className="icon" />}
+          {isOpen && <MobileSidebar />}
+
+        </div>
         <div className="relative">
           <HiOutlineShoppingBag className="icon" />
           <div className="bg-[var(--primary-color)] rounded-full absolute top-0 right-0 w-[18px] h-[18px] text-[12px] text-[var(--color-white)] grid place-items-center translate-x-1 -translate-y-1">
@@ -17,16 +31,16 @@ const MobNavbar = () => {
           </div>
         </div>
 
-        <AiOutlineHome className="icon" />
+        <Link href="/"><AiOutlineHome className="icon" /></Link>
 
         <div className="relative">
-          <FiHeart className="icon"/>
+          <FiHeart className="icon" />
           <div className="bg-[var(--primary-color)] rounded-full absolute top-0 right-0 w-[18px] h-[18px] text-[12px] text-[var(--color-white)] grid place-items-center translate-x-1 -translate-y-1">
             0
           </div>
         </div>
 
-        <AiOutlineAppstore className="icon"/>
+        <Link href="/categories"><AiOutlineAppstore className="icon" /></Link>
       </div>
     </div>
   );
