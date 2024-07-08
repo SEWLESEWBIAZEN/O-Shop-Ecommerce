@@ -4,7 +4,7 @@ import { categoriesWithDiscount } from '../_data/categories'
 
 const HotOffers = () => {
     return (
-        <div>
+        <div className='py-5'>
             <Categories categories={categoriesWithDiscount} />
         </div>
     )
