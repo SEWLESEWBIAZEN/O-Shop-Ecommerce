@@ -13,10 +13,11 @@ const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "O-Shop | Buy Your Favourite",
-  icons:{
-    icon:'/favicon.ico',
+  icons: {
+    icon: "/favicon.ico",
   },
-  description: "An Online shop that you can order the product you want to purchase, and it is an online show room",
+  description:
+    "An Online shop that you can order the product you want to purchase, and it is an online show room",
 };
 
 export default function RootLayout({
@@ -26,17 +27,17 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-        <head>
+      <head>
         <link rel="icon" href="/favicon.ico" />
       </head>
       <body className={`${inter.className}`}>
-        <div>
+        <div className="mx-auto overflow-hidden">
           <HeaderTop />
           <HeaderMain />
           <Navbar />
           <MobileNavbar />
           {children}
-          <Footer/>
+          <Footer />
         </div>
       </body>
     </html>
