@@ -15,6 +15,7 @@ const Categories = ({ categories }) => {
             img={category.img}
             priceHint={category.priceHint}
             fav={category.fav}
+            discount={category.discount}
           />
         )
       })}

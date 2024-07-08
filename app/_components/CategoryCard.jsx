@@ -4,7 +4,7 @@ import { AiOutlineArrowRight } from 'react-icons/ai'
 import { FaThumbsUp } from 'react-icons/fa'
 
 
-const CategoryCard = ({ id, img, title, desc, fav, priceHint }) => {
+const CategoryCard = ({ id, img, title, desc, fav, priceHint, discount }) => {
 
   //render links
   const renderLikes = () => {
@@ -47,15 +47,22 @@ const CategoryCard = ({ id, img, title, desc, fav, priceHint }) => {
   }
   return (
     <div className='h-[400px] sm:h-[300px] lg:h-[200px]'>
-      <div className={`h-full gap-1 bg-gray-50 hover:bg-white border border-gray-200 rounded-2xl ${(id % 2 !== 0) ? "sm:flex-row" : "sm:flex-row-reverse"}  flex flex-col justify-evenly items-center mx-auto p-1`}>
 
-        <Image
-          src={img}
-          width={160}
-          height={160}
-          alt='Category image'
-          className='rounded-2xl mx-auto sm:mx-0 cursor-pointer object-cover'
-        />
+      <div className={`h-full gap-1 bg-gray-50 hover:bg-white border border-gray-200 rounded-2xl ${(id % 2 !== 0) ? "sm:flex-row" : "sm:flex-row-reverse"}  flex flex-col justify-evenly items-center mx-auto p-1`}>
+        <div>
+          {discount &&
+            <div className='ps-5 font-bold text-[var(--primary-color)] -rotate-45'>{discount}% OFF</div>}
+
+          <Image
+            src={img}
+            width={160}
+            height={160}
+            alt='Category image'
+            className='rounded-2xl mx-auto sm:mx-0 cursor-pointer object-cover'
+          />
+
+        </div>
+
 
         <div className='flex flex-col gap-3 justify-center px-2'>
           <h1 className=' text-[var(--primary-color)]  font-semibold font-mono text-md text-sm'>{title}</h1>
@@ -82,9 +89,11 @@ const CategoryCard = ({ id, img, title, desc, fav, priceHint }) => {
               className=' text-gray-400 hover:text-[var(--primary-color)] cursor-pointer font-bold'
             />
           </div>
+
         </div>
       </div>
-    </div >
+    </div>
+
   )
 }
 
