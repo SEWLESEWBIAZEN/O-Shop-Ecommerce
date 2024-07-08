@@ -2,7 +2,7 @@
 
 import Image from 'next/image'
 import React, { useState } from 'react'
-import { AiOutlineArrowRight } from 'react-icons/ai'
+import { AiOutlineArrowRight, AiOutlinePlus, AiOutlineMinus } from 'react-icons/ai'
 import { FaThumbsUp } from 'react-icons/fa'
 
 
@@ -106,10 +106,10 @@ const CategoryCard = ({ id, img, title, desc, fav, priceHint, discount }) => {
           </div>
           <div className='flex flex-row items-center justify-between'>
             <button className='bg-blue-600 py-2 px-4 text-white rounded-md hover:bg-blue-500'>Add to Cart</button>
-            <div className='flex flex-row items-center justify-center gap-2'>
-              <button onClick={decrement} className='text-[3rem]'>-</button>
-              <div id='amount' name='amount' className='w-10 border text-center border-gray-300 h-6'>{amount}</div>
-              <button onClick={increment} className='text-[2rem]'>+</button>
+            <div className='flex flex-row p-2 rounded-md items-center justify-center gap-2 bg-slate-300'>
+              <button onClick={decrement}><AiOutlineMinus size={25} /></button>
+              <div id='amount' name='amount' className='w-12 border text-center border-gray-300 h-6'>{amount}</div>
+              <button onClick={increment} ><AiOutlinePlus size={25} /></button>
             </div>
           </div>
 
