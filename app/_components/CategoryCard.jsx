@@ -57,10 +57,10 @@ const CategoryCard = ({ id, img, title, desc, fav, priceHint }) => {
           className='rounded-2xl mx-auto sm:mx-0 cursor-pointer'
         />
 
-        <div className='flex flex-col gap-3 justify-center'>
+        <div className='flex flex-col gap-3 justify-center px-2'>
           <h1 className=' text-[var(--primary-color)]  font-semibold font-mono text-md text-sm'>{title}</h1>
           <p className='text-gray-500 max-w-[300px] text-center md:text-start text-wrap'>{desc}</p>
-          <div className='flex flex-row  text-gray-500 items-center justify-between'>
+          <div className='flex flex-row  text-gray-500 items-center justify-between flex-wrap'>
             <div className='flex flex-row -space-x-1 gap-1 '>
               {fav <= 15 && (<span className='flex flex-row items-center gap-1 max-w-[150px] flex-wrap '>{renderLikes()}</span>)}
               {(fav > 15 && fav <= 30) && (
