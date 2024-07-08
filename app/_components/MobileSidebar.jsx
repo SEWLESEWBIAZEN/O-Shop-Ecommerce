@@ -9,11 +9,11 @@ const links =
         },
         {
             link: "MEN",
-            href: "/men"
+            href: "/mens"
         },
         {
             link: "WOMEN",
-            href: "/women"
+            href: "/womens"
         },
         {
             link: "JEWLERY",
