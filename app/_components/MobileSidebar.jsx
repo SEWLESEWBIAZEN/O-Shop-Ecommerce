@@ -9,7 +9,7 @@ const MobileSidebar = () => {
             <Link href="/women" className='  px-6 py-1 text-black font-semibold hover:text-[var(--primary-color)] rounded-sm text-[14px]'>WOMEN</Link>
             <Link href="/jewlery" className='  px-6 py-1 text-black font-semibold hover:text-[var(--primary-color)] rounded-sm text-[14px]'>JEWLERY</Link>
             <Link href="/perfume" className='  px-6 py-1 text-black font-semibold hover:text-[var(--primary-color)] rounded-sm text-[14px]'>PERFUME</Link>
-            <Link href="/blog" className='  px-6 py-1 text-black font-semibold hover:text-[var(--primary-color)] rounded-sm text-[14px]'>BLOR</Link>
+            <Link href="/blog" className='  px-6 py-1 text-black font-semibold hover:text-[var(--primary-color)] rounded-sm text-[14px]'>BLOG</Link>
             <Link href="/hot-offers" className='  px-6 py-1 text-black font-semibold hover:text-[var(--primary-color)] rounded-sm text-[14px]'>HOT OFFERS</Link>
         </div>
     )
