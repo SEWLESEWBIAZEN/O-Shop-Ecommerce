@@ -46,7 +46,7 @@ const CategoryCard = ({ id, img, title, desc, fav, priceHint }) => {
     return likes;
   }
   return (
-    <div className='h-[350px] sm:h-[250px] lg:h-[200px]'>
+    <div className='h-[400px] sm:h-[300px] lg:h-[200px]'>
       <div className={`h-full gap-1 bg-gray-50 hover:bg-white border border-gray-200 rounded-2xl ${(id % 2 !== 0) ? "sm:flex-row" : "sm:flex-row-reverse"}  flex flex-col justify-evenly items-center mx-auto p-1`}>
 
         <Image
