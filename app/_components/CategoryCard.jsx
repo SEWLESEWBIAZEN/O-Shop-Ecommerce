@@ -1,11 +1,27 @@
+'use client'
+
 import Image from 'next/image'
-import React from 'react'
+import React, { useState } from 'react'
 import { AiOutlineArrowRight } from 'react-icons/ai'
 import { FaThumbsUp } from 'react-icons/fa'
 
 
 const CategoryCard = ({ id, img, title, desc, fav, priceHint, discount }) => {
 
+
+
+  const [amount, SetAmount] = useState(0)
+
+  //decrement
+  const decrement = () => {
+    amount > 0 && SetAmount(amount - 1)
+  }
+
+
+  //increment
+  const increment = () => {
+    amount < 100 && SetAmount(amount + 1)
+  }
   //render links
   const renderLikes = () => {
     const likes = []
@@ -46,8 +62,7 @@ const CategoryCard = ({ id, img, title, desc, fav, priceHint, discount }) => {
     return likes;
   }
   return (
-    <div className='h-[400px] sm:h-[300px] lg:h-[200px]'>
-
+    <div className='h-auto'>
       <div className={`h-full gap-1 bg-gray-50 hover:bg-white border border-gray-200 rounded-2xl ${(id % 2 !== 0) ? "sm:flex-row" : "sm:flex-row-reverse"}  flex flex-col justify-evenly items-center mx-auto p-1`}>
         <div className='flex flex-col -space-y-12 '>
           {discount &&
@@ -88,6 +103,14 @@ const CategoryCard = ({ id, img, title, desc, fav, priceHint, discount }) => {
               size={25}
               className=' text-gray-400 hover:text-[var(--primary-color)] cursor-pointer font-bold'
             />
+          </div>
+          <div className='flex flex-row items-center justify-between'>
+            <button className='bg-blue-600 py-2 px-4 text-white rounded-md hover:bg-blue-500'>Add to Cart</button>
+            <div className='flex flex-row items-center justify-center gap-2'>
+              <button onClick={decrement} className='text-[3rem]'>-</button>
+              <div id='amount' name='amount' className='w-10 border text-center border-gray-300 h-6'>{amount}</div>
+              <button onClick={increment} className='text-[2rem]'>+</button>
+            </div>
           </div>
 
         </div>
