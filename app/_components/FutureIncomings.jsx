@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react'
 import { Incomingcategories } from '../_data/categories'
 import Categories from '../_components/Categories'
 import { AiOutlineArrowRight } from 'react-icons/ai'
-import { useFilteringContext } from './CategoriesProvider'
+import { useFilteringContext } from './providers/CategoriesProvider'
 
 const FutureIncomings = () => {
     const { text } = useFilteringContext();

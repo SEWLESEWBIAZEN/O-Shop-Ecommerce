@@ -4,7 +4,7 @@ import React, { useEffect, useState } from 'react'
 import { frequentlyOrdered } from '../_data/categories'
 import Categories from '../_components/Categories'
 import { AiOutlineArrowRight } from 'react-icons/ai'
-import { useFilteringContext } from './CategoriesProvider'
+import { useFilteringContext } from './providers/CategoriesProvider'
 const FrequentlyOrdered = () => {
     const { text } = useFilteringContext();
     const [filteredCategories, setFilteredCategories] = useState(frequentlyOrdered);

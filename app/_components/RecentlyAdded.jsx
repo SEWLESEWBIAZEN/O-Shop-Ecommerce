@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from 'react'
 import Categories from '../_components/Categories'
 import { AiOutlineArrowRight } from 'react-icons/ai'
-import { useFilteringContext } from './CategoriesProvider'
+import { useFilteringContext } from './providers/CategoriesProvider'
 import { recentlyAdded } from '../_data/categories'
 
 const RecentlyAdded = () => {

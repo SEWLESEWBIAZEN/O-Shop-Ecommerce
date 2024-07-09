@@ -4,7 +4,7 @@ import React from "react";
 // import { categories } from "../_data/categories";
 import Categories from "../_components/Categories";
 import { AiOutlineArrowRight } from 'react-icons/ai'
-import { useFilteringContext } from "./CategoriesProvider";
+import { useFilteringContext } from "./providers/CategoriesProvider";
 
 const TopRatedCategories = () => {
     const { filteredCategories } = useFilteringContext();
