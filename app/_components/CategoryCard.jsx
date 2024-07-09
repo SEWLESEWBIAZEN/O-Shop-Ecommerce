@@ -120,7 +120,7 @@ const CategoryCard = ({ id, img, title, desc, fav, priceHint, discount }) => {
               <p className='text-gray-500 text-opacity-65 tracking-widest'>{priceHint}</p>
               <div className='cursor-pointer'
                 onClick={handleAddToFavorite}>
-                {favorite ? <FaHeart size={20} color='var(--primary-color)' /> : <AiOutlineHeart size={30} />}
+                {favorite ? <FaHeart size={25} color='var(--primary-color)' /> : <AiOutlineHeart size={25} />}
               </div>
             </div>
 
