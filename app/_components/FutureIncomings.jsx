@@ -10,7 +10,7 @@ const FutureIncomings = () => {
     const [filteredCategories, setFilteredCategories] = useState(Incomingcategories);
 
     useEffect(() => {
-        const newFilteredCategories = filteredCategories.filter(category =>
+        const newFilteredCategories = Incomingcategories.filter(category =>
             category.title.toLowerCase().includes(text.toLowerCase()) ||
             category.desc.toLowerCase().includes(text.toLowerCase())
         );
