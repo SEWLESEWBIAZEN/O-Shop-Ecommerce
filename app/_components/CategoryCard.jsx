@@ -1,13 +1,9 @@
 'use client'
-
 import Image from 'next/image'
 import React, { useState } from 'react'
 import { AiOutlineArrowRight, AiOutlinePlus, AiOutlineMinus, AiOutlineHeart, AiFillHeart, AiOutlineLike } from 'react-icons/ai'
 import { useCartContext, useFavoriteContext } from '../_components/providers/CartProvider'
 import { usePathname } from 'next/navigation'
-
-
-
 
 const CategoryCard = ({ id, img, title, desc, fav, priceHint, discount, quantity }) => {
   const { cartAmount, setCartAmount, cartItems, setCartItems } = useCartContext();
@@ -17,10 +13,7 @@ const CategoryCard = ({ id, img, title, desc, fav, priceHint, discount, quantity
 
   const [favorite, setFavorite] = useState(false);
 
-
   const pathname = usePathname();
-
-
 
   const handleAddToCart = () => {
 
@@ -56,8 +49,6 @@ const CategoryCard = ({ id, img, title, desc, fav, priceHint, discount, quantity
     setFavoriteAmount(favorite ? favoriteAmount - 1 : favoriteAmount + 1)
   }
 
-
-
   //decrement
   const decrement = () => {
     setAmount(prev => Math.max(prev - 1, 0));
@@ -78,7 +69,6 @@ const CategoryCard = ({ id, img, title, desc, fav, priceHint, discount, quantity
     return likes;
   }
 
-
   //rendering 5 likes
 
   const render5Likes = () => {
@@ -91,7 +81,6 @@ const CategoryCard = ({ id, img, title, desc, fav, priceHint, discount, quantity
 
     return likes;
   }
-
 
   //rendering 3 likes
 
@@ -149,8 +138,6 @@ const CategoryCard = ({ id, img, title, desc, fav, priceHint, discount, quantity
                   {favorite ? <AiFillHeart size={25} color='var(--primary-color)' /> : <AiOutlineHeart size={25} />}
                 </div> : ""}
             </div>
-
-
           </div>
         </div>
         <div className={`flex flex-row items-center justify-between mt-3 w-[100%] px-3`}>
@@ -172,19 +159,13 @@ const CategoryCard = ({ id, img, title, desc, fav, priceHint, discount, quantity
                 </div> : ""
             }
             {quantity && <div>Quantity:{quantity}</div>}
-
           </div>
-
           <AiOutlineArrowRight
             size={25}
             className=' text-gray-400 hover:text-[var(--primary-color)] cursor-pointer font-bold'
           />
-
         </div>
       </div>
-
-
-
     </div>
 
   )
