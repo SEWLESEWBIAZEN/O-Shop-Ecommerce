@@ -118,10 +118,10 @@ const CategoryCard = ({ id, img, title, desc, fav, priceHint, discount }) => {
             </div>
             <div className='flex flex-row justify-between'>
               <p className='text-gray-500 text-opacity-65 tracking-widest'>{priceHint}</p>
-              <AiOutlineArrowRight
-                size={25}
-                className=' text-gray-400 hover:text-[var(--primary-color)] cursor-pointer font-bold'
-              />
+              <div className='cursor-pointer'
+                onClick={handleAddToFavorite}>
+                {favorite ? <FaHeart size={20} color='var(--primary-color)' /> : <AiOutlineHeart size={30} />}
+              </div>
             </div>
 
 
@@ -138,10 +138,10 @@ const CategoryCard = ({ id, img, title, desc, fav, priceHint, discount }) => {
               <button onClick={increment} ><AiOutlinePlus size={25} /></button>
             </div>
           </div>
-          <div className='cursor-pointer'
-            onClick={handleAddToFavorite}>
-            {favorite ? <FaHeart size={30} color='var(--primary-color)' /> : <AiOutlineHeart size={30} />}
-          </div>
+          <AiOutlineArrowRight
+            size={25}
+            className=' text-gray-400 hover:text-[var(--primary-color)] cursor-pointer font-bold'
+          />
 
         </div>
       </div>
