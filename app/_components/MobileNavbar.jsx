@@ -8,8 +8,10 @@ import { IoMenuOutline, IoCloseOutline } from "react-icons/io5";
 import { AiOutlineHome, AiOutlineAppstore } from "react-icons/ai";
 import Link from "next/link";
 import MobileSidebar from './MobileSidebar'
+import { useCartContext, CartProvider } from "./providers/CartProvider";
 
 const MobNavbar = () => {
+  const { cartAmount } = useCartContext();
 
   const [isOpen, setIsOpen] = useState(false)
 
@@ -17,6 +19,7 @@ const MobNavbar = () => {
     setIsOpen(!isOpen);
   }
   return (
+
     <div className="sm:hidden fixed bottom-0 w-full bg-white left-[50%] -translate-x-[50%] max-w-[500px] px-8">
       <div className="flex justify-between text-[28px] py-2">
         <div onClick={toggleSidebar}>
@@ -26,8 +29,8 @@ const MobNavbar = () => {
         </div>
         <div className="relative">
           <HiOutlineShoppingBag className="icon" />
-          <div className="bg-[var(--primary-color)] rounded-full absolute top-0 right-0 w-[18px] h-[18px] text-[12px] text-[var(--color-white)] grid place-items-center translate-x-1 -translate-y-1">
-            0
+          <div className="bg-[var(--primary-color)] rounded-full absolute top-0 right-0 w-auto h-auto text-[12px] text-[var(--color-white)] grid place-items-center translate-x-1 -translate-y-1 ">
+            {cartAmount}
           </div>
         </div>
 
@@ -43,6 +46,7 @@ const MobNavbar = () => {
         <Link href="/categories"><AiOutlineAppstore className="icon" /></Link>
       </div>
     </div>
+
   );
 };
 
