@@ -2,8 +2,8 @@
 
 import Image from 'next/image'
 import React, { useState } from 'react'
-import { AiOutlineArrowRight, AiOutlinePlus, AiOutlineMinus, AiOutlineHeart } from 'react-icons/ai'
-import { FaThumbsUp, FaHeart } from 'react-icons/fa'
+import { AiOutlineArrowRight, AiOutlinePlus, AiOutlineMinus, AiOutlineHeart, AiFillHeart, AiOutlineLike } from 'react-icons/ai'
+import { FaThumbsUp } from 'react-icons/fa'
 import { useCartContext, useFavoriteContext } from '../_components/providers/CartProvider'
 
 
@@ -46,7 +46,7 @@ const CategoryCard = ({ id, img, title, desc, fav, priceHint, discount }) => {
     const likes = []
 
     for (let i = 1; i <= fav; i++) {
-      likes.push(<FaThumbsUp key={i} size={12} className='text-orange-800' />)
+      likes.push(<AiOutlineLike key={i} size={12} className='text-orange-800' />)
     }
 
 
@@ -60,7 +60,7 @@ const CategoryCard = ({ id, img, title, desc, fav, priceHint, discount }) => {
     const likes = []
 
     for (let i = 1; i <= 5; i++) {
-      likes.push(<FaThumbsUp key={i} size={12} className='text-orange-800' />)
+      likes.push(<AiOutlineLike key={i} size={12} className='text-orange-800' />)
     }
 
 
@@ -74,7 +74,7 @@ const CategoryCard = ({ id, img, title, desc, fav, priceHint, discount }) => {
     const likes = []
 
     for (let i = 1; i <= 3; i++) {
-      likes.push(<FaThumbsUp key={i} size={12} className='text-orange-800' />)
+      likes.push(<AiOutlineLike key={i} size={12} className='text-orange-800' />)
     }
 
 
@@ -120,14 +120,14 @@ const CategoryCard = ({ id, img, title, desc, fav, priceHint, discount }) => {
               <p className='text-gray-500 text-opacity-65 tracking-widest'>{priceHint}</p>
               <div className='cursor-pointer'
                 onClick={handleAddToFavorite}>
-                {favorite ? <FaHeart size={25} color='var(--primary-color)' /> : <AiOutlineHeart size={25} />}
+                {favorite ? <AiFillHeart size={25} color='var(--primary-color)' /> : <AiOutlineHeart size={25} />}
               </div>
             </div>
 
 
           </div>
         </div>
-        <div className={`flex ${(id % 2 === 0) ? "flex-row" : "flex-row-reverse"} items-center justify-between mt-3 w-[100%] px-3`}>
+        <div className={`flex flex-row items-center justify-between mt-3 w-[100%] px-3`}>
           <div className='flex flex-row justify-between items-center gap-3'>
             <button
               onClick={handleAddToCart}
