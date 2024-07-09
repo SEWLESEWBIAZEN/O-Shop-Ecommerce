@@ -4,23 +4,28 @@ import Image from 'next/image'
 import React, { useState } from 'react'
 import { AiOutlineArrowRight, AiOutlinePlus, AiOutlineMinus } from 'react-icons/ai'
 import { FaThumbsUp } from 'react-icons/fa'
+import { useCartContext } from '../_components/providers/CartProvider'
 
 
 const CategoryCard = ({ id, img, title, desc, fav, priceHint, discount }) => {
+  const { cartAmount, setCartAmount } = useCartContext();
+  const [amount, setAmount] = useState(0);
 
 
 
-  const [amount, SetAmount] = useState(0)
+  const handleAddToCart = () => {
+    setCartAmount(prev => {
+      return prev + amount;
+    });
 
+  }
   //decrement
   const decrement = () => {
-    amount > 0 && SetAmount(amount - 1)
+    setAmount(prev => Math.max(prev - 1, 0));
   }
 
-
-  //increment
   const increment = () => {
-    amount < 100 && SetAmount(amount + 1)
+    setAmount(prev => Math.min(prev + 1, 100));
   }
   //render links
   const renderLikes = () => {
@@ -105,12 +110,15 @@ const CategoryCard = ({ id, img, title, desc, fav, priceHint, discount }) => {
             />
           </div>
           <div className='flex flex-row items-center justify-between'>
-            <button className='bg-blue-600 py-2 px-4 text-white rounded-md hover:bg-blue-500'>Add to Cart</button>
+            <button
+              onClick={handleAddToCart}
+              className='bg-blue-600 py-2 px-4 text-white rounded-md hover:bg-blue-500'>Add to Cart</button>
             <div className='flex flex-row p-2 rounded-md items-center justify-center gap-2 bg-slate-300'>
               <button onClick={decrement}><AiOutlineMinus size={25} /></button>
               <div id='amount' name='amount' className='w-12 border text-center border-gray-300 h-6'>{amount}</div>
               <button onClick={increment} ><AiOutlinePlus size={25} /></button>
             </div>
+
           </div>
 
         </div>
