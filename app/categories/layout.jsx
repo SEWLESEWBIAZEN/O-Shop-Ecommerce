@@ -1,9 +1,10 @@
 import React from 'react'
 
-const CategoriesLayout = ({children}) => {
+
+const CategoriesLayout = ({ children }) => {
   return (
     <div>
-        {children }
+      {children}
     </div>
   )
 }
