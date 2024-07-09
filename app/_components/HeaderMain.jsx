@@ -5,6 +5,8 @@ import { BsSearch, BsHeart } from 'react-icons/bs'
 import { FiUser } from 'react-icons/fi'
 import { useFilteringContext } from './providers/CategoriesProvider'
 import { useCartContext, useFavoriteContext } from './providers/CartProvider'
+import Link from 'next/link'
+
 
 
 
@@ -36,11 +38,11 @@ const Page = () => {
             <FiUser className='w-6 h-6 icon' />
           </div>
           <div className='flex flex-col items-center -space-y-11 '>
-            <BsHeart className='w-6 h-6 icon' />
+            <Link href="/categories/favorite"><BsHeart className='w-6 h-6 icon' /></Link>
             <div className=' rounded-full z-40 grid place-items-center text-[var(--primary-color)] font-bold text-[12px] bg-white text-bold'><b>{favoriteAmount}</b></div>
           </div>
           <div className='flex flex-col items-center -space-y-11 '>
-            <BiSolidShoppingBag className='w-6 h-6 icon' />
+            <Link href="/categories/cart"> <BiSolidShoppingBag className='w-6 h-6 icon' /></Link>
             <div className=' rounded-full z-40 grid place-items-center text-[var(--primary-color)] font-bold text-[12px] bg-white text-bold'><b>{cartAmount}</b></div>
           </div>
         </div>

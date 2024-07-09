@@ -29,7 +29,7 @@ const MobNavbar = () => {
 
         </div>
         <div className="relative">
-          <HiOutlineShoppingBag className="icon" />
+          <Link href="/categories/cart"><HiOutlineShoppingBag className="icon" /></Link>
           <div className="text-[var(--primary-color)] font-bold rounded-full absolute top-0 right-0 w-auto h-auto text-[12px] bg-[var(--color-white)] grid place-items-center translate-x-1 -translate-y-1 ">
             {cartAmount}
           </div>
@@ -38,7 +38,7 @@ const MobNavbar = () => {
         <Link href="/"><AiOutlineHome className="icon" /></Link>
 
         <div className="relative">
-          <FiHeart className="icon" />
+          <Link href="/categories/favorite"><FiHeart className="icon" /></Link>
           <div className="text-[var(--primary-color)] rounded-full font-bold absolute top-0 right-0 w-[18px] h-[18px] text-[12px] bg-[var(--color-white)] grid place-items-center translate-x-1 -translate-y-1">
             {favoriteAmount}
           </div>
