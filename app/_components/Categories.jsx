@@ -16,6 +16,7 @@ const Categories = ({ categories }) => {
             priceHint={category.priceHint}
             fav={category.fav}
             discount={category.discount}
+            quantity={category.quantity}
           />
         )
       })}
