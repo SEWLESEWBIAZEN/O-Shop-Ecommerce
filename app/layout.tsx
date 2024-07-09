@@ -9,7 +9,10 @@ import Footer from "./_components/Footer";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { CategoriesProvider } from "./_components/providers/CategoriesProvider";
-import { CartProvider } from "./_components/providers/CartProvider";
+import {
+  CartProvider,
+  FavoriteProvider,
+} from "./_components/providers/CartProvider";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -35,12 +38,14 @@ export default function RootLayout({
       <body className={`${inter.className}`}>
         <CategoriesProvider>
           <CartProvider>
-            <HeaderTop />
-            <HeaderMain />
-            <Navbar />
-            <MobileNavbar />
-            {children}
-            <Footer />
+            <FavoriteProvider>
+              <HeaderTop />
+              <HeaderMain />
+              <Navbar />
+              <MobileNavbar />
+              {children}
+              <Footer />
+            </FavoriteProvider>
           </CartProvider>
         </CategoriesProvider>
       </body>

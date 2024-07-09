@@ -8,10 +8,11 @@ import { IoMenuOutline, IoCloseOutline } from "react-icons/io5";
 import { AiOutlineHome, AiOutlineAppstore } from "react-icons/ai";
 import Link from "next/link";
 import MobileSidebar from './MobileSidebar'
-import { useCartContext, CartProvider } from "./providers/CartProvider";
+import { useCartContext, useFavoriteContext } from "./providers/CartProvider";
 
 const MobNavbar = () => {
   const { cartAmount } = useCartContext();
+  const { favoriteAmount } = useFavoriteContext();
 
   const [isOpen, setIsOpen] = useState(false)
 
@@ -39,7 +40,7 @@ const MobNavbar = () => {
         <div className="relative">
           <FiHeart className="icon" />
           <div className="text-[var(--primary-color)] rounded-full font-bold absolute top-0 right-0 w-[18px] h-[18px] text-[12px] bg-[var(--color-white)] grid place-items-center translate-x-1 -translate-y-1">
-            0
+            {favoriteAmount}
           </div>
         </div>
 

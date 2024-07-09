@@ -4,11 +4,14 @@ import Image from 'next/image'
 import React, { useState } from 'react'
 import { AiOutlineArrowRight, AiOutlinePlus, AiOutlineMinus, AiOutlineHeart } from 'react-icons/ai'
 import { FaThumbsUp, FaHeart } from 'react-icons/fa'
-import { useCartContext } from '../_components/providers/CartProvider'
+import { useCartContext, useFavoriteContext } from '../_components/providers/CartProvider'
+
 
 
 const CategoryCard = ({ id, img, title, desc, fav, priceHint, discount }) => {
   const { setCartAmount } = useCartContext();
+  const { setFavoriteAmount } = useFavoriteContext();
+
   const [amount, setAmount] = useState(0);
 
   const [favorite, setFavorite] = useState(false);
@@ -19,8 +22,17 @@ const CategoryCard = ({ id, img, title, desc, fav, priceHint, discount }) => {
     setCartAmount(prev => {
       return prev + amount;
     });
-
   }
+
+  const handleAddToFavorite = () => {
+    setFavorite(!favorite)
+    calculate();
+  }
+  const calculate = () => {
+    setFavoriteAmount(prev => favorite ? prev - 1 : prev + 1)
+  }
+
+
   //decrement
   const decrement = () => {
     setAmount(prev => Math.max(prev - 1, 0));
@@ -77,8 +89,6 @@ const CategoryCard = ({ id, img, title, desc, fav, priceHint, discount }) => {
 
             {discount &&
               <div className='w-[100px] mt-5 ps-5 font-semibold text-white -rotate-45 bg-[var(--primary-color)] -px-10'>{discount}% OFF</div>}
-
-
             <Image
               src={img}
               width={160}
@@ -86,12 +96,7 @@ const CategoryCard = ({ id, img, title, desc, fav, priceHint, discount }) => {
               alt='Category image'
               className='rounded-2xl mx-auto sm:mx-0 cursor-pointer object-cover'
             />
-
-
-
-
           </div>
-
 
           <div className='flex flex-col gap-3 justify-center px-2'>
             <h1 className=' text-[var(--primary-color)]  font-semibold font-mono text-md text-sm'>{title}</h1>
@@ -134,7 +139,7 @@ const CategoryCard = ({ id, img, title, desc, fav, priceHint, discount }) => {
             </div>
           </div>
           <div className='cursor-pointer'
-            onClick={() => setFavorite(!favorite)}>
+            onClick={handleAddToFavorite}>
             {favorite ? <FaHeart size={30} color='var(--primary-color)' /> : <AiOutlineHeart size={30} />}
           </div>
 

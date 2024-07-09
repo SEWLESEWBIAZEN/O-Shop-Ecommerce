@@ -15,3 +15,18 @@ export const CartProvider = ({ children }) => {
 
 export const useCartContext = () => useContext(CartContext);
 
+
+const FavoriteContext = createContext();
+
+export const FavoriteProvider = ({ children }) => {
+    const [favoriteAmount, setFavoriteAmount] = useState(0);
+
+    return (
+        <FavoriteContext.Provider value={{ favoriteAmount, setFavoriteAmount }}>
+            {children}
+        </FavoriteContext.Provider>
+    );
+};
+
+export const useFavoriteContext = () => useContext(FavoriteContext);
+
