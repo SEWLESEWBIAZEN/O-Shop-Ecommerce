@@ -36,11 +36,11 @@ const Page = () => {
           </div>
           <div className='flex flex-col items-center -space-y-11 '>
             <BsHeart className='w-6 h-6 icon' />
-            <div className='px-[6px] rounded-full z-40 grid place-items-center bg-[var(--primary-color)] text-white text-bold'><b>3</b></div>
+            <div className=' rounded-full z-40 grid place-items-center text-[var(--primary-color)] font-bold text-[12px] bg-white text-bold'><b>3</b></div>
           </div>
           <div className='flex flex-col items-center -space-y-11 '>
             <BiSolidShoppingBag className='w-6 h-6 icon' />
-            <div className='px-[6px] rounded-full z-40 grid place-items-center bg-[var(--primary-color)] text-white text-bold'><b>{cartAmount}</b></div>
+            <div className=' rounded-full z-40 grid place-items-center text-[var(--primary-color)] font-bold text-[12px] bg-white text-bold'><b>{cartAmount}</b></div>
           </div>
         </div>
 
