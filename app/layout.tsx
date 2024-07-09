@@ -8,7 +8,8 @@ import MobileNavbar from "./_components/MobileNavbar";
 import Footer from "./_components/Footer";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import { CategoriesProvider } from "./_components/CategoriesProvider";
+import { CategoriesProvider } from "./_components/providers/CategoriesProvider";
+import { CartProvider } from "./_components/providers/CartProvider";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -33,12 +34,14 @@ export default function RootLayout({
       </head>
       <body className={`${inter.className}`}>
         <CategoriesProvider>
-          <HeaderTop />
-          <HeaderMain />
-          <Navbar />
-          <MobileNavbar />
-          {children}
-          <Footer />
+          <CartProvider>
+            <HeaderTop />
+            <HeaderMain />
+            <Navbar />
+            <MobileNavbar />
+            {children}
+            <Footer />
+          </CartProvider>
         </CategoriesProvider>
       </body>
     </html>
