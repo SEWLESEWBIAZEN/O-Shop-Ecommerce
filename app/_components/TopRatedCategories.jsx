@@ -1,13 +1,24 @@
 'use client'
 
-import React from "react";
-// import { categories } from "../_data/categories";
+import React, { useState, useEffect } from "react";
 import Categories from "../_components/Categories";
+import { categories } from '../_data/categories';
 import { AiOutlineArrowRight } from 'react-icons/ai'
 import { useFilteringContext } from "./providers/CategoriesProvider";
 
 const TopRatedCategories = () => {
-    const { filteredCategories } = useFilteringContext();
+    const { text } = useFilteringContext();
+    const [filteredCategories, setFilteredCategories] = useState(categories);
+
+    useEffect(() => {
+        const newFilteredCategories = categories.filter(category =>
+            category.title.toLowerCase().includes(text.toLowerCase()) ||
+            category.desc.toLowerCase().includes(text.toLowerCase())
+        );
+        setFilteredCategories(newFilteredCategories);
+    }, [text]);
+
+
 
     return (
         <div className="container  bg-gray-100 py-2 rounded-2xl">
