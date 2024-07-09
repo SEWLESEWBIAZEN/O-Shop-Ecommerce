@@ -147,14 +147,14 @@ const CategoryCard = ({ id, img, title, desc, fav, priceHint, discount, quantity
           </div>
         </div>
         <div className={`flex flex-row items-center justify-between mt-3 w-[100%] px-3`}>
-          <div className='flex flex-col-reverse sm:flex-row justify-between mx-auto items-center gap-3'>
+          <div className='flex flex-col-reverse sm:flex-row  mx-auto place-items-center gap-3'>
             <button
               onClick={handleAddToCart}
-              className='bg-blue-600 py-2 px-4 text-white rounded-md hover:bg-blue-500'>Add to Cart</button>
-            <div className='flex flex-row p-2 rounded-md items-center justify-center gap-2 bg-slate-300'>
-              <button onClick={decrement}><AiOutlineMinus size={25} /></button>
-              <div id='amount' name='amount' className='w-12 border text-center border-gray-300 h-6'>{amount}</div>
-              <button onClick={increment} ><AiOutlinePlus size={25} /></button>
+              className='bg-blue-600 text-[12px] py-2 px-3 text-white rounded-md hover:bg-blue-500'>Add to Cart</button>
+            <div className='flex flex-row p-[6px] rounded-md items-center justify-center bg-slate-300'>
+              <button onClick={decrement}><AiOutlineMinus size={15} /></button>
+              <div id='amount' name='amount' className='w-8 border text-center text-[14px] border-gray-300 h-auto'>{amount}</div>
+              <button onClick={increment} ><AiOutlinePlus size={15} /></button>
             </div>
             {quantity && <div>Quantity:{quantity}</div>}
 
