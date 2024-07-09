@@ -3,14 +3,13 @@
 import Image from 'next/image'
 import React, { useState } from 'react'
 import { AiOutlineArrowRight, AiOutlinePlus, AiOutlineMinus, AiOutlineHeart, AiFillHeart, AiOutlineLike } from 'react-icons/ai'
-import { FaThumbsUp } from 'react-icons/fa'
 import { useCartContext, useFavoriteContext } from '../_components/providers/CartProvider'
 
 
 
-const CategoryCard = ({ id, img, title, desc, fav, priceHint, discount }) => {
-  const { setCartAmount } = useCartContext();
-  const { setFavoriteAmount } = useFavoriteContext();
+const CategoryCard = ({ id, img, title, desc, fav, priceHint, discount, quantity }) => {
+  const { cartAmount, setCartAmount, cartItems, setCartItems } = useCartContext();
+  const { favoriteAmount, setFavoriteAmount, favoriteItems, setFavoriteItems } = useFavoriteContext();
 
   const [amount, setAmount] = useState(0);
 
@@ -19,18 +18,38 @@ const CategoryCard = ({ id, img, title, desc, fav, priceHint, discount }) => {
 
 
   const handleAddToCart = () => {
-    setCartAmount(prev => {
-      return prev + amount;
-    });
+    setCartAmount(cartAmount + 1);
+
+    const cartItem = {
+      id: id,
+      img: img,
+      title: title,
+      desc: desc,
+      fav: fav,
+      priceHint: priceHint,
+      quantity: amount
+    }
+    const newCartItems = [...cartItems, cartItem];
+    setCartItems(newCartItems);
+
   }
 
   const handleAddToFavorite = () => {
     setFavorite(!favorite)
-    calculate();
-  }
-  const calculate = () => {
+    const favoriteItem = {
+      id: id,
+      img: img,
+      title: title,
+      desc: desc,
+      fav: fav,
+      priceHint: priceHint,
+
+    }
+    const newFavoriteItems = [...favoriteItems, favoriteItem];
+    setFavoriteItems(newFavoriteItems);
     setFavoriteAmount(prev => favorite ? prev - 1 : prev + 1)
   }
+
 
 
   //decrement
@@ -138,6 +157,7 @@ const CategoryCard = ({ id, img, title, desc, fav, priceHint, discount }) => {
               <button onClick={increment} ><AiOutlinePlus size={25} /></button>
             </div>
           </div>
+          {quantity && <div>Quantity:{quantity}</div>}
           <AiOutlineArrowRight
             size={25}
             className=' text-gray-400 hover:text-[var(--primary-color)] cursor-pointer font-bold'
