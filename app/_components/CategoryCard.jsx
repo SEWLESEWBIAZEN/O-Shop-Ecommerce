@@ -4,6 +4,8 @@ import Image from 'next/image'
 import React, { useState } from 'react'
 import { AiOutlineArrowRight, AiOutlinePlus, AiOutlineMinus, AiOutlineHeart, AiFillHeart, AiOutlineLike } from 'react-icons/ai'
 import { useCartContext, useFavoriteContext } from '../_components/providers/CartProvider'
+import { usePathname } from 'next/navigation'
+
 
 
 
@@ -16,8 +18,12 @@ const CategoryCard = ({ id, img, title, desc, fav, priceHint, discount, quantity
   const [favorite, setFavorite] = useState(false);
 
 
+  const pathname = usePathname();
+
+
 
   const handleAddToCart = () => {
+
     setCartAmount(cartAmount + 1);
 
     const cartItem = {
@@ -47,7 +53,7 @@ const CategoryCard = ({ id, img, title, desc, fav, priceHint, discount, quantity
     }
     const newFavoriteItems = [...favoriteItems, favoriteItem];
     setFavoriteItems(newFavoriteItems);
-    setFavoriteAmount(prev => favorite ? prev - 1 : prev + 1)
+    setFavoriteAmount(favorite ? favoriteAmount - 1 : favoriteAmount + 1)
   }
 
 
@@ -137,10 +143,11 @@ const CategoryCard = ({ id, img, title, desc, fav, priceHint, discount, quantity
             </div>
             <div className='flex flex-row justify-between'>
               <p className='text-gray-500 text-opacity-65 tracking-widest'>{priceHint}</p>
-              <div className='cursor-pointer'
-                onClick={handleAddToFavorite}>
-                {favorite ? <AiFillHeart size={25} color='var(--primary-color)' /> : <AiOutlineHeart size={25} />}
-              </div>
+              {pathname !== "/categories/favorite"
+                ? <div className='cursor-pointer'
+                  onClick={handleAddToFavorite}>
+                  {favorite ? <AiFillHeart size={25} color='var(--primary-color)' /> : <AiOutlineHeart size={25} />}
+                </div> : ""}
             </div>
 
 
@@ -148,14 +155,22 @@ const CategoryCard = ({ id, img, title, desc, fav, priceHint, discount, quantity
         </div>
         <div className={`flex flex-row items-center justify-between mt-3 w-[100%] px-3`}>
           <div className='flex flex-col-reverse sm:flex-row  mx-auto place-items-center gap-3'>
-            <button
-              onClick={handleAddToCart}
-              className='bg-blue-600 text-[12px] py-2 px-3 text-white rounded-md hover:bg-blue-500'>Add to Cart</button>
-            <div className='flex flex-row p-[6px] rounded-md items-center justify-center bg-slate-300'>
-              <button onClick={decrement}><AiOutlineMinus size={15} /></button>
-              <div id='amount' name='amount' className='w-8 border text-center text-[14px] border-gray-300 h-auto'>{amount}</div>
-              <button onClick={increment} ><AiOutlinePlus size={15} /></button>
-            </div>
+            {pathname !== "/categories/cart"
+              ? <button
+                disabled={amount < 1 ? true : false}
+                onClick={handleAddToCart}
+                className={`${amount < 1 ? "bg-gray-500" : "bg-blue-600"} text-[12px] py-2 px-3 text-white rounded-md hover:${amount < 1 ? "none" : "bg-blue-500"}`}>
+                Add to Cart
+              </button> : ""
+            }
+            {
+              pathname !== "/categories/cart"
+                ? <div className='flex flex-row p-[6px] rounded-md items-center justify-center bg-slate-300'>
+                  <button onClick={decrement}><AiOutlineMinus size={15} /></button>
+                  <div id='amount' name='amount' className='w-8 border text-center text-[14px] border-gray-300 h-auto'>{amount}</div>
+                  <button onClick={increment} ><AiOutlinePlus size={15} /></button>
+                </div> : ""
+            }
             {quantity && <div>Quantity:{quantity}</div>}
 
           </div>
