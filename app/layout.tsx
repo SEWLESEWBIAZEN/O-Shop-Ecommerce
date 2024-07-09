@@ -8,7 +8,7 @@ import MobileNavbar from "./_components/MobileNavbar";
 import Footer from "./_components/Footer";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import { CategoriesProvider } from "./_components/categories-provider";
+import { CategoriesProvider } from "./_components/CategoriesProvider";
 
 const inter = Inter({ subsets: ["latin"] });
 
