@@ -1,8 +1,10 @@
+'use client'
+
 import React from "react";
-import { categories } from "../_data/categories";
+// import { categories } from "../_data/categories";
 import Categories from "../_components/Categories";
 import { AiOutlineArrowRight } from 'react-icons/ai'
-import { useFilteringContext } from "./categories-provider";
+import { useFilteringContext } from "./CategoriesProvider";
 
 const TopRatedCategories = () => {
     const { filteredCategories } = useFilteringContext();

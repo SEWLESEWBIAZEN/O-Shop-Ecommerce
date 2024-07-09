@@ -1,9 +1,23 @@
-import React from 'react'
-import { recentlyAdded } from '../_data/categories'
+'use client'
+import React, { useState, useEffect } from 'react'
 import Categories from '../_components/Categories'
 import { AiOutlineArrowRight } from 'react-icons/ai'
+import { useFilteringContext } from './CategoriesProvider'
+import { recentlyAdded } from '../_data/categories'
 
 const RecentlyAdded = () => {
+    const { text } = useFilteringContext();
+    const [filteredCategories, setFilteredCategories] = useState(recentlyAdded);
+
+    useEffect(() => {
+        const newFilteredCategories = recentlyAdded.filter((category) =>
+            category.title.toLowerCase().includes(text.toLowerCase()) ||
+            category.desc.toLowerCase().includes(text.toLowerCase())
+
+
+        );
+        setFilteredCategories(newFilteredCategories);
+    }, [text]);
     return (
         <div className="container bg-gray-100 rounded-2xl py-2">
             <div className="flex flex-row justify-between py-2">
@@ -14,7 +28,7 @@ const RecentlyAdded = () => {
                 </div>
             </div>
             <div className="text-center ">
-                <Categories categories={recentlyAdded} />
+                <Categories categories={filteredCategories} />
             </div>
         </div>
 
