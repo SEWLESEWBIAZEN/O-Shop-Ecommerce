@@ -3,11 +3,18 @@
 import { BiSolidShoppingBag } from 'react-icons/bi'
 import { BsSearch, BsHeart } from 'react-icons/bs'
 import { FiUser } from 'react-icons/fi'
-import { useFilteringContext } from './CategoriesProvider'
+import { useFilteringContext } from './providers/CategoriesProvider'
+import { CartProvider, useCartContext } from './providers/CartProvider'
+import { useEffect, useState } from 'react'
+
 
 const Page = () => {
+
   const { text, setText } = useFilteringContext();
+  const { cartAmount } = useCartContext();
+
   return (
+
     <div className='px-3 py-5 border-b border-gray-300'>
       <div className='container flex flex-row justify-between items-center' >
         <div className='text-[20px] hidden sm:block'><b>O-shop</b></div>
@@ -29,11 +36,11 @@ const Page = () => {
           </div>
           <div className='flex flex-col items-center -space-y-11 '>
             <BsHeart className='w-6 h-6 icon' />
-            <div className='px-[6px] rounded-full z-40 grid place-items-center bg-[var(--primary-color)] text-white text-bold'><b>4</b></div>
+            <div className='px-[6px] rounded-full z-40 grid place-items-center bg-[var(--primary-color)] text-white text-bold'><b>3</b></div>
           </div>
           <div className='flex flex-col items-center -space-y-11 '>
             <BiSolidShoppingBag className='w-6 h-6 icon' />
-            <div className='px-[6px] rounded-full z-40 grid place-items-center bg-[var(--primary-color)] text-white text-bold'><b>4</b></div>
+            <div className='px-[6px] rounded-full z-40 grid place-items-center bg-[var(--primary-color)] text-white text-bold'><b>{cartAmount}</b></div>
           </div>
         </div>
 
@@ -41,6 +48,7 @@ const Page = () => {
 
 
     </div>
+
   )
 }
 
