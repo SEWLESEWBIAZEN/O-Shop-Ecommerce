@@ -17,10 +17,8 @@ const CategoryCard = ({ id, img, title, desc, fav, priceHint, discount, quantity
 
   const pathname = usePathname();
 
+
   const handleAddToCart = () => {
-
-
-
     const cartItem = {
       id: id,
       img: img,
@@ -43,29 +41,38 @@ const CategoryCard = ({ id, img, title, desc, fav, priceHint, discount, quantity
     }
   }
 
-  const handleAddToFavorite = () => {
-    setFavorite(!favorite)
-    const favoriteItem = {
-      id: id,
-      img: img,
-      title: title,
-      desc: desc,
-      fav: fav,
-      priceHint: priceHint,
+  //removing an item from cart
 
-    }
-    const duplicated = favoriteItems.some((item) => item.img === favoriteItem.img);
-    if (!duplicated && favorite) {
-      const newFavoriteItems = [...favoriteItems, favoriteItem];
-      setFavoriteItems(newFavoriteItems);
-    }
-    if (!favorite) {
-      const updatedFavoriteItems = favoriteItems.filter(item => item.img !== favoriteItem.img);
-      setFavoriteItems(updatedFavoriteItems);
-    }
-
-    setFavoriteAmount(favorite ? favoriteAmount - 1 : favoriteAmount + 1)
+  const removeFromCart = () => {
+    setCartAmount(cartAmount - 1)
+    const updatedCartItems = cartItems.filter(item => item.img !== img);
+    setCartItems(updatedCartItems)
   }
+
+  //adding items to favorite
+  // const handleAddToFavorite = () => {
+  //   setFavorite(!favorite);
+  //   const favoriteItem = {
+  //     id: id,
+  //     img: img,
+  //     title: title,
+  //     desc: desc,
+  //     fav: fav,
+  //     priceHint: priceHint,
+
+  //   }
+  //   const duplicated = favoriteItems.some((item) => item.img === favoriteItem.img);
+  //   if (!duplicated && favorite) {
+  //     const newFavoriteItems = [...favoriteItems, favoriteItem];
+  //     setFavoriteItems(newFavoriteItems);
+  //   }
+  //   if (!favorite) {
+  //     const updatedFavoriteItems = favoriteItems.filter(item => item.img !== favoriteItem.img);
+  //     setFavoriteItems(updatedFavoriteItems);
+  //   }
+
+  //   setFavoriteAmount(favorite ? favoriteAmount + 1 : favoriteAmount - 1)
+  // }
 
   //decrement
   const decrement = () => {
@@ -150,11 +157,10 @@ const CategoryCard = ({ id, img, title, desc, fav, priceHint, discount, quantity
             </div>
             <div className='flex flex-row justify-between'>
               <p className='text-gray-500 text-opacity-65 tracking-widest'>{priceHint}</p>
-              {pathname !== "/categories/favorite"
-                ? <div className='cursor-pointer'
-                  onClick={handleAddToFavorite}>
-                  {favorite ? <AiFillHeart size={25} color='var(--primary-color)' /> : <AiOutlineHeart size={25} />}
-                </div> : ""}
+              <div className='cursor-pointer'
+                onClick="">
+                {(favorite || pathname === "/categories/favorite") ? <AiFillHeart size={25} color='var(--primary-color)' /> : <AiOutlineHeart size={25} />}
+              </div>
             </div>
           </div>
         </div>
@@ -166,7 +172,10 @@ const CategoryCard = ({ id, img, title, desc, fav, priceHint, discount, quantity
                 onClick={handleAddToCart}
                 className={`${amount < 1 ? "bg-gray-500" : "bg-blue-600"} text-[12px] py-2 px-3 text-white rounded-md hover:${amount < 1 ? "none" : "bg-blue-500"}`}>
                 Add to Cart
-              </button> : ""
+              </button> :
+              <button
+                onClick={removeFromCart}
+                className='bg-red-600 text-[12px] py-2 px-3 text-white rounded-md hover:'>Remove From Cart</button>
             }
             {
               pathname !== "/categories/cart"
