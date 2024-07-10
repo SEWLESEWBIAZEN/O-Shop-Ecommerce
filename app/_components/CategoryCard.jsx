@@ -6,8 +6,8 @@ import { useCartContext, useFavoriteContext } from '../_components/providers/Car
 import { usePathname } from 'next/navigation'
 
 const CategoryCard = ({ id, img, title, desc, fav, priceHint, discount, quantity }) => {
-  const { cartAmount, setCartAmount, cartItems, setCartItems } = useCartContext();
-  const { favoriteAmount, setFavoriteAmount, favoriteItems, setFavoriteItems } = useFavoriteContext();
+  const { cartItems, setCartItems } = useCartContext();
+  const { favoriteItems, setFavoriteItems } = useFavoriteContext();
 
   const [amount, setAmount] = useState(0);
 
@@ -32,7 +32,6 @@ const CategoryCard = ({ id, img, title, desc, fav, priceHint, discount, quantity
 
 
     if (!duplicated) {
-      setCartAmount(cartAmount + 1);
       const newCartItems = [...cartItems, cartItem];
       setCartItems(newCartItems);
 
@@ -44,35 +43,34 @@ const CategoryCard = ({ id, img, title, desc, fav, priceHint, discount, quantity
   //removing an item from cart
 
   const removeFromCart = () => {
-    setCartAmount(cartAmount - 1)
     const updatedCartItems = cartItems.filter(item => item.img !== img);
     setCartItems(updatedCartItems)
   }
 
   //adding items to favorite
-  // const handleAddToFavorite = () => {
-  //   setFavorite(!favorite);
-  //   const favoriteItem = {
-  //     id: id,
-  //     img: img,
-  //     title: title,
-  //     desc: desc,
-  //     fav: fav,
-  //     priceHint: priceHint,
+  const handleAddToFavorite = () => {
+    // setFavorite(!favorite);
+    const favoriteItem = {
+      id: id,
+      img: img,
+      title: title,
+      desc: desc,
+      fav: fav,
+      priceHint: priceHint,
 
-  //   }
-  //   const duplicated = favoriteItems.some((item) => item.img === favoriteItem.img);
-  //   if (!duplicated && favorite) {
-  //     const newFavoriteItems = [...favoriteItems, favoriteItem];
-  //     setFavoriteItems(newFavoriteItems);
-  //   }
-  //   if (!favorite) {
-  //     const updatedFavoriteItems = favoriteItems.filter(item => item.img !== favoriteItem.img);
-  //     setFavoriteItems(updatedFavoriteItems);
-  //   }
+    }
+    const duplicated = favoriteItems.some((item) => item.img === img);
+    setFavorite(duplicated)
 
-  //   setFavoriteAmount(favorite ? favoriteAmount + 1 : favoriteAmount - 1)
-  // }
+    if (pathname === "/categories/favorite") {
+      const updatedFavoriteItems = favoriteItems.filter(item => item.img !== favoriteItem.img);
+      setFavoriteItems(updatedFavoriteItems);
+    } else if (!duplicated) {
+      const newFavoriteItems = [...favoriteItems, favoriteItem];
+      setFavoriteItems(newFavoriteItems);
+
+    }
+  }
 
   //decrement
   const decrement = () => {
@@ -158,7 +156,7 @@ const CategoryCard = ({ id, img, title, desc, fav, priceHint, discount, quantity
             <div className='flex flex-row justify-between'>
               <p className='text-gray-500 text-opacity-65 tracking-widest'>{priceHint}</p>
               <div className='cursor-pointer'
-                onClick="">
+                onClick={handleAddToFavorite}>
                 {(favorite || pathname === "/categories/favorite") ? <AiFillHeart size={25} color='var(--primary-color)' /> : <AiOutlineHeart size={25} />}
               </div>
             </div>

@@ -13,8 +13,8 @@ import Link from 'next/link'
 const Page = () => {
 
   const { text, setText } = useFilteringContext();
-  const { cartAmount } = useCartContext();
-  const { favoriteAmount } = useFavoriteContext();
+  const { cartItems } = useCartContext();
+  const { favoriteItems } = useFavoriteContext();
 
   return (
 
@@ -39,11 +39,11 @@ const Page = () => {
           </div>
           <div className='flex flex-col items-center -space-y-11 '>
             <Link href="/categories/favorite"><BsHeart className='w-6 h-6 icon' /></Link>
-            <div className=' rounded-full z-40 grid place-items-center text-[var(--primary-color)] font-bold text-[12px] bg-white text-bold'><b>{favoriteAmount}</b></div>
+            <div className=' rounded-full z-40 grid place-items-center text-[var(--primary-color)] font-bold text-[12px] bg-white text-bold'><b>{favoriteItems.length}</b></div>
           </div>
           <div className='flex flex-col items-center -space-y-11 '>
             <Link href="/categories/cart"> <BiSolidShoppingBag className='w-6 h-6 icon' /></Link>
-            <div className=' rounded-full z-40 grid place-items-center text-[var(--primary-color)] font-bold text-[12px] bg-white text-bold'><b>{cartAmount}</b></div>
+            <div className=' rounded-full z-40 grid place-items-center text-[var(--primary-color)] font-bold text-[12px] bg-white text-bold'><b>{cartItems.length}</b></div>
           </div>
         </div>
 

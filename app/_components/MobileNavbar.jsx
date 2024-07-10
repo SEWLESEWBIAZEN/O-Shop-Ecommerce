@@ -11,8 +11,8 @@ import MobileSidebar from './MobileSidebar'
 import { useCartContext, useFavoriteContext } from "./providers/CartProvider";
 
 const MobNavbar = () => {
-  const { cartAmount } = useCartContext();
-  const { favoriteAmount } = useFavoriteContext();
+  const { cartItems } = useCartContext();
+  const { favoriteItems } = useFavoriteContext();
 
   const [isOpen, setIsOpen] = useState(false)
 
@@ -31,7 +31,7 @@ const MobNavbar = () => {
         <div className="relative">
           <Link href="/categories/cart"><HiOutlineShoppingBag className="icon" /></Link>
           <div className="text-[var(--primary-color)] font-bold rounded-full absolute top-0 right-0 w-auto h-auto text-[12px] bg-[var(--color-white)] grid place-items-center translate-x-1 -translate-y-1 ">
-            {cartAmount}
+            {cartItems.length}
           </div>
         </div>
 
@@ -40,7 +40,7 @@ const MobNavbar = () => {
         <div className="relative">
           <Link href="/categories/favorite"><FiHeart className="icon" /></Link>
           <div className="text-[var(--primary-color)] rounded-full font-bold absolute top-0 right-0 w-[18px] h-[18px] text-[12px] bg-[var(--color-white)] grid place-items-center translate-x-1 -translate-y-1">
-            {favoriteAmount}
+            {favoriteItems.length}
           </div>
         </div>
 
