@@ -23,6 +23,7 @@ export const FavoriteProvider = ({ children }) => {
     const [favoriteAmount, setFavoriteAmount] = useState(0);
     const [favoriteItems, setFavoriteItems] = useState([])
 
+
     return (
         <FavoriteContext.Provider value={{ favoriteAmount, setFavoriteAmount, favoriteItems, setFavoriteItems }}>
             {children}
