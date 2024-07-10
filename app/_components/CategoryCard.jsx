@@ -6,18 +6,19 @@ import { useCartContext, useFavoriteContext } from '../_components/providers/Car
 import { usePathname } from 'next/navigation'
 
 const CategoryCard = ({ id, img, title, desc, fav, priceHint, discount, quantity }) => {
+
+  //context states
   const { cartItems, setCartItems } = useCartContext();
   const { favoriteItems, setFavoriteItems } = useFavoriteContext();
 
+  //local states /hook states
   const [amount, setAmount] = useState(0);
-
   const [favorite, setFavorite] = useState(false);
 
-
-
+  //accessing pathname of the specific page
   const pathname = usePathname();
 
-
+  //adding to cart
   const handleAddToCart = () => {
     const cartItem = {
       id: id,
@@ -41,7 +42,6 @@ const CategoryCard = ({ id, img, title, desc, fav, priceHint, discount, quantity
   }
 
   //removing an item from cart
-
   const removeFromCart = () => {
     const updatedCartItems = cartItems.filter(item => item.img !== img);
     setCartItems(updatedCartItems)
@@ -77,6 +77,7 @@ const CategoryCard = ({ id, img, title, desc, fav, priceHint, discount, quantity
     setAmount(prev => Math.max(prev - 1, 0));
   }
 
+  //incrementing the amouny of an item
   const increment = () => {
     setAmount(prev => Math.min(prev + 1, 100));
   }
@@ -93,7 +94,6 @@ const CategoryCard = ({ id, img, title, desc, fav, priceHint, discount, quantity
   }
 
   //rendering 5 likes
-
   const render5Likes = () => {
     const likes = []
 
@@ -106,7 +106,6 @@ const CategoryCard = ({ id, img, title, desc, fav, priceHint, discount, quantity
   }
 
   //rendering 3 likes
-
   const render3Likes = () => {
     const likes = []
 
