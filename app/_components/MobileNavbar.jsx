@@ -7,7 +7,7 @@ import { HiOutlineShoppingBag } from "react-icons/hi";
 import { IoMenuOutline, IoCloseOutline } from "react-icons/io5";
 import { AiOutlineHome, AiOutlineAppstore } from "react-icons/ai";
 import Link from "next/link";
-import MobileSidebar from './MobileSidebar'
+import MobileSidebar from './MobileMenu'
 import { useCartContext, useFavoriteContext } from "./providers/CartProvider";
 
 const MobNavbar = () => {
