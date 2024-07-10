@@ -13,11 +13,13 @@ const CategoryCard = ({ id, img, title, desc, fav, priceHint, discount, quantity
 
   const [favorite, setFavorite] = useState(false);
 
+
+
   const pathname = usePathname();
 
   const handleAddToCart = () => {
 
-    setCartAmount(cartAmount + 1);
+
 
     const cartItem = {
       id: id,
@@ -28,9 +30,17 @@ const CategoryCard = ({ id, img, title, desc, fav, priceHint, discount, quantity
       priceHint: priceHint,
       quantity: amount
     }
-    const newCartItems = [...cartItems, cartItem];
-    setCartItems(newCartItems);
+    const duplicated = cartItems.some((item) => item.img === cartItem.img);
 
+
+    if (!duplicated) {
+      setCartAmount(cartAmount + 1);
+      const newCartItems = [...cartItems, cartItem];
+      setCartItems(newCartItems);
+
+    } else {
+      alert("Item already Added! go to your cart and remove it to add it again")
+    }
   }
 
   const handleAddToFavorite = () => {
@@ -44,8 +54,16 @@ const CategoryCard = ({ id, img, title, desc, fav, priceHint, discount, quantity
       priceHint: priceHint,
 
     }
-    const newFavoriteItems = [...favoriteItems, favoriteItem];
-    setFavoriteItems(newFavoriteItems);
+    const duplicated = favoriteItems.some((item) => item.img === favoriteItem.img);
+    if (!duplicated && favorite) {
+      const newFavoriteItems = [...favoriteItems, favoriteItem];
+      setFavoriteItems(newFavoriteItems);
+    }
+    if (!favorite) {
+      const updatedFavoriteItems = favoriteItems.filter(item => item.img !== favoriteItem.img);
+      setFavoriteItems(updatedFavoriteItems);
+    }
+
     setFavoriteAmount(favorite ? favoriteAmount - 1 : favoriteAmount + 1)
   }
 
