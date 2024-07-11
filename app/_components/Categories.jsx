@@ -21,7 +21,6 @@ const Categories = ({ categories }) => {
         )
       })}
     </div>
-
   )
 }
 
