@@ -1,11 +1,13 @@
 'use client'
 import Image from 'next/image'
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { AiOutlineArrowRight, AiOutlinePlus, AiOutlineMinus, AiOutlineHeart, AiFillHeart, AiOutlineLike } from 'react-icons/ai'
 import { useCartContext, useFavoriteContext } from '../_components/providers/CartProvider'
 import { usePathname } from 'next/navigation'
+import { toast } from 'sonner'
 
-const CategoryCard = ({ id, img, title, desc, fav, priceHint, discount, quantity }) => {
+const CategoryCard = ({ id, img, title, desc, fav, priceHint, discount, quantity }) =>
+{
 
   //context states
   const { cartItems, setCartItems } = useCartContext();
@@ -18,8 +20,14 @@ const CategoryCard = ({ id, img, title, desc, fav, priceHint, discount, quantity
   //accessing pathname of the specific page
   const pathname = usePathname();
 
+  useEffect(() =>
+  {
+    toast.success("Added to Favorites Successfully!")
+  },[favorite])
+
   //adding to cart
-  const handleAddToCart = () => {
+  const handleAddToCart = () =>
+  {
     const cartItem = {
       id: id,
       img: img,
@@ -32,23 +40,29 @@ const CategoryCard = ({ id, img, title, desc, fav, priceHint, discount, quantity
     const duplicated = cartItems.some((item) => item.img === cartItem.img);
 
 
-    if (!duplicated) {
+    if (!duplicated)
+    {
       const newCartItems = [...cartItems, cartItem];
       setCartItems(newCartItems);
+      toast.success("Item Is Added to Cart Successfully!")
 
-    } else {
-      alert("Item already Added! go to your cart and remove it to add it again")
+    } else
+    {
+      toast.error("Duplicated Item, try to remove it first and add again")
     }
   }
 
   //removing an item from cart
-  const removeFromCart = () => {
+  const removeFromCart = () =>
+  {
     const updatedCartItems = cartItems.filter(item => item.img !== img);
     setCartItems(updatedCartItems)
+    toast.success("Item Is Removed from Cart Successfully!")
   }
 
   //adding items to favorite
-  const handleAddToFavorite = () => {
+  const handleAddToFavorite = () =>
+  {
     // setFavorite(!favorite);
     const favoriteItem = {
       id: id,
@@ -62,30 +76,38 @@ const CategoryCard = ({ id, img, title, desc, fav, priceHint, discount, quantity
     const duplicated = favoriteItems.some((item) => item.img === img);
     setFavorite(duplicated)
 
-    if (pathname === "/categories/favorite") {
+    if (pathname === "/categories/favorite")
+    {
       const updatedFavoriteItems = favoriteItems.filter(item => item.img !== favoriteItem.img);
       setFavoriteItems(updatedFavoriteItems);
-    } else if (!duplicated) {
+    } else if (!duplicated)
+    {
+      toast.success("Added to Favorites Successfully!")
       const newFavoriteItems = [...favoriteItems, favoriteItem];
       setFavoriteItems(newFavoriteItems);
+
 
     }
   }
 
   //decrement
-  const decrement = () => {
+  const decrement = () =>
+  {
     setAmount(prev => Math.max(prev - 1, 0));
   }
 
   //incrementing the amouny of an item
-  const increment = () => {
+  const increment = () =>
+  {
     setAmount(prev => Math.min(prev + 1, 100));
   }
   //render links
-  const renderLikes = () => {
+  const renderLikes = () =>
+  {
     const likes = []
 
-    for (let i = 1; i <= fav; i++) {
+    for (let i = 1; i <= fav; i++)
+    {
       likes.push(<AiOutlineLike key={i} size={12} className='text-orange-800' />)
     }
 
@@ -94,10 +116,12 @@ const CategoryCard = ({ id, img, title, desc, fav, priceHint, discount, quantity
   }
 
   //rendering 5 likes
-  const render5Likes = () => {
+  const render5Likes = () =>
+  {
     const likes = []
 
-    for (let i = 1; i <= 5; i++) {
+    for (let i = 1; i <= 5; i++)
+    {
       likes.push(<AiOutlineLike key={i} size={12} className='text-orange-800' />)
     }
 
@@ -106,10 +130,12 @@ const CategoryCard = ({ id, img, title, desc, fav, priceHint, discount, quantity
   }
 
   //rendering 3 likes
-  const render3Likes = () => {
+  const render3Likes = () =>
+  {
     const likes = []
 
-    for (let i = 1; i <= 3; i++) {
+    for (let i = 1; i <= 3; i++)
+    {
       likes.push(<AiOutlineLike key={i} size={12} className='text-orange-800' />)
     }
 
